@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div id="page">
+        <div class="content">
+            <div class="search">
+                <input placeholder="City name...">
+                <button onclick="searchForCity()">Find</button>
+            </div>
+            <div class="searchResult">
+                <div id="cities">
+
+                </div>
+            </div>
+        </div>
+
+
+        <script id="city-template" type="text/x-handlebars-template">
+        <div class="city" data-id="{{city.city}}">
+            <img class="city-image" src="{{city.conditionPic}}">
+            <div class="info">
+                <p class="city-name">{{city.city}}</p>
+                <p class="city-temp">{{city.temperature}} {{city.unit}}</p>
+                <p class="city-condition">{{city.condition}}</p>
+             </div>
+             <div class="itemBtns">
+                {{#if isSavedToDB}}
+                    <button class="remove">-</button>
+                {{else}}
+                    <button class="add">+</button>
+                {{/if}}
+                <button class="refresh">&#8635;</button>
+             </div>
+        </div>
+    </div>
+    </script>
+
+        <script src="/jquery/dist/jquery.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <script src="Renderer.js"></script>
+        <script src="City.js"></script>
+        <script src="Model.js"></script>
+        <script src="main.js"></script>
+</body>
+
+</html>

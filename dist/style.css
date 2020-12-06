@@ -1,0 +1,50 @@
+
+.searchResult{
+    height: 80vh;
+    background-color: #87CEFA;
+    border: solid grey 1px;
+}
+
+.itemBtns > button{
+    height: fit-content;
+}
+
+.itemBtns{
+    display: grid;
+    grid-template-columns: auto auto
+}
+
+.city{
+    border-bottom: solid grey 1px;
+    display: grid;
+    grid-template-columns: auto auto 15vw;
+}
+
+#cities{
+    background-color: #87CEFA;
+    width: 95vw;
+}
+
+p{
+    text-align: center;
+}
+
+img{
+    display:block;
+    margin:auto;
+}
+
+.search > button {
+    width: 13vw;
+    height: 5vh;
+}
+
+.search > input {
+    width: 80vw;
+    height: 5vh;
+}
+
+.search{
+    background-color: #87CEFA;
+    display: inline-block;
+}
