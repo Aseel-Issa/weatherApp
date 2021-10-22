@@ -21,10 +21,7 @@ const saveWeatherToDB = async function(weatherObj){
 }
 
 const getAllWeatherItems = async function(){
-    let data
-    await Weather.find({}, function(err, result){
-        data = result
-    })
+    let data = await Weather.find({})
     return data
 }
 
@@ -42,10 +39,9 @@ const deleteWeatherItemByCityName = function(name){
     
     Weather.findOneAndDelete({city: name}, function (error, result) {
         if (error) {
-            return error
+            console.log(error)
           } else {
-            //  console.log(result)
-            return result
+             console.log(result)
           }
     })
 }
@@ -54,9 +50,9 @@ const emptyDB = function(){
     
     Weather.deleteMany({}, function (error) {
         if (error) {
-            return error
+            console.log(error)
           } else {
-            return "Database is empty now!"
+            console.log("Database is empty now!")
           }
     })
 }

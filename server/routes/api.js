@@ -12,13 +12,20 @@ router.get('/sanity', function (request, response) {
 
 router.post('/weather', async function (request, response) {
     const weather = request.body
-    await db.saveWeatherToDB(weather)
-    response.send(weather)
+    // const result = await db.saveWeatherToDB(weather)
+    // response.send(result)
+
+    const result = db.saveWeatherToDB(weather)
+    result.then((data)=>{response.send(data)})
+        .catch((data)=>{
+            response.status(400).send({
+                message: 'Object was not saved correctl!'
+             })
+            })
 })
 
 router.get('/weather', async function (request, response) {
     const results = await db.getAllWeatherItems()
-  //  console.log(results)
     response.send(results)
 })
 
@@ -48,6 +55,7 @@ router.get('/weather/externalAPI/:cityName', async function (request, response) 
             condition: results.data.weather[0].main,
             conditionPic: `http://openweathermap.org/img/wn/${results.data.weather[0].icon}@2x.png`
         }
+        console.log(weather)
         response.send(weather)
     } catch (error) {
         response.send(error)

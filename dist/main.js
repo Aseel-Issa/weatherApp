@@ -3,6 +3,7 @@ const model = new Model()
 const renderer = new Renderer()
 
 const searchForCity = async function () {
+    console.log('search for city')
     const cityName = $('input').val()
     const results = await model.getCityWeather(cityName)
     renderer.renderAllCities(results.cities)
